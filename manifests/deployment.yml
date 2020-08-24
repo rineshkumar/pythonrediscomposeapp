@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: azure-vote-back
+  name: redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: azure-vote-back
+      app: redis
   template:
     metadata:
       labels:
-        app: azure-vote-back
+        app: redis
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: azure-vote-back
+      - name: redis
         image: redis
         ports:
         - containerPort: 6379
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-back
+  name: redis
 spec:
   ports:
   - port: 6379
   selector:
-    app: azure-vote-back
+    app: redis
 ---    
 apiVersion : apps/v1
 kind: Deployment
@@ -52,7 +52,7 @@ spec:
           - containerPort: 5000
           env:
           - name: REDIS
-            value: "azure-vote-back"
+            value: "redis"
 ---
 apiVersion: v1
 kind: Service
