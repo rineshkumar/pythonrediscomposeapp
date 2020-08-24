@@ -4,6 +4,9 @@ metadata:
   name: rineshkumarpythonrediscomposeapp 
 spec:
   replicas: 1
+  selector:
+      matchLabels:
+        name: azure
   template:
     metadata:
       labels:
