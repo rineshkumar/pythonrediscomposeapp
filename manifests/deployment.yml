@@ -39,7 +39,7 @@ spec:
   replicas: 1
   selector:
       matchLabels:
-        app: rineshkumarpythonrediscomposeapp 
+        app: rineshkumarpythonrediscomposeapp
   template:
     metadata:
       labels:
@@ -50,3 +50,17 @@ spec:
           image: mrrkacr.azurecr.io/rineshkumarpythonrediscomposeapp
           ports:
           - containerPort: 5000
+          env:
+          - name: REDIS
+            value: "azure-vote-back"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: User facing service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: rineshkumarpythonrediscomposeapp        
