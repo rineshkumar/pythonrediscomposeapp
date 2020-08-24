@@ -3,7 +3,7 @@ LOCATION='westus'
 RESOURCE_GROUP='mrrkrg'
 AKS_CLUSTER_NAME='mrrkakscluster'
 ACR_NAME='mrrkacr'
-SQL_SERVER_NAME='mrrksqlserver'
+# SQL_SERVER_NAME='mrrksqlserver'
 
 
 version=$(az aks get-versions -l $LOCATION --query 'orchestrators[-1].orchestratorVersion' -o tsv)
@@ -26,7 +26,7 @@ echo "acr id is $ACR_ID"
 # Create role assignment
 echo "giving pull role to aks principal id in acr"
 az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
-echo "creating sql server with name $SQL_SERVER_NAME"
- az sql server create -l $LOCATION -g $RESOURCE_GROUP -n $SQL_SERVER_NAME -u sqladmin -p P2ssw0rd1234
- echo "Creating database with name mhcdb in server $SQL_SERVER_NAME"
-  az sql db create -g $RESOURCE_GROUP -s $SQL_SERVER_NAME -n mhcdb --service-objective S0
+# echo "creating sql server with name $SQL_SERVER_NAME"
+#  az sql server create -l $LOCATION -g $RESOURCE_GROUP -n $SQL_SERVER_NAME -u sqladmin -p P2ssw0rd1234
+#  echo "Creating database with name mhcdb in server $SQL_SERVER_NAME"
+#   az sql db create -g $RESOURCE_GROUP -s $SQL_SERVER_NAME -n mhcdb --service-objective S0
