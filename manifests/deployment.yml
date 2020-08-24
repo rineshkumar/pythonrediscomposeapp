@@ -49,7 +49,7 @@ spec:
         - name: rineshkumarpythonrediscomposeapp 
           image: mrrkacr.azurecr.io/rineshkumarpythonrediscomposeapp
           ports:
-          - containerPort: 5000
+          - containerPort: 80
           env:
           - name: REDIS
             value: "redis"
