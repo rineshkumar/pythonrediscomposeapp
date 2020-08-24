@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
       matchLabels:
-        name: azure
+        app: rineshkumarpythonrediscomposeapp 
   template:
     metadata:
       labels:
