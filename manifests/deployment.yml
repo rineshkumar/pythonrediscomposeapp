@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: rineshkumarpythonrediscomposeapp 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rineshkumarpythonrediscomposeapp 
+    spec:
+      containers:
+        - name: rineshkumarpythonrediscomposeapp 
+          image: mrrkacr.azurecr.io/rineshkumarpythonrediscomposeapp
+          ports:
+          - containerPort: 5000
